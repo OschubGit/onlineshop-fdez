@@ -1,7 +1,9 @@
 import './App.css';
-import Typography from '@mui/material/Typography';
-import {Container} from "@mui/material";
+/* components */
 import Navbar from './components/Navbar';
+/* material components */
+import {Container} from "@mui/material";
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
@@ -10,9 +12,7 @@ function App() {
           <Navbar/>
       </header>
       <Container className='container'>
-        <Typography variant='h1'>
-          ¡Hey!
-        </Typography>
+        <ItemListContainer greeting="¡Hey!"/>
       </Container>
     </div>
   );

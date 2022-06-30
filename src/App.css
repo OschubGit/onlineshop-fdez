@@ -24,6 +24,11 @@ body{
   width: 100%;
 }
 
+.btn-login{
+  display: flex;
+  gap: 12px;
+}
+
 .nav-menu{
   flex-grow: 1;
   display: flex;
