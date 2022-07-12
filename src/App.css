@@ -45,6 +45,13 @@ body{
   color: white;
 }
 
+.counter{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 
 @keyframes App-logo-spin {
   from {

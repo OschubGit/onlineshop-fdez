@@ -3,7 +3,8 @@ import './App.css';
 import Navbar from './components/Navbar';
 /* material components */
 import {Container} from "@mui/material";
-import ItemListContainer from './components/ItemListContainer';
+/* import ItemListContainer from './components/ItemListContainer'; */
+import ItemCount from './components/ItemCount';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
           <Navbar/>
       </header>
       <Container className='container'>
-        <ItemListContainer greeting="¡Hey!"/>
+        {/* <ItemListContainer greeting="¡Hey!"/> */}
+        <ItemCount/>
       </Container>
     </div>
   );
