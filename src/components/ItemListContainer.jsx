@@ -1,12 +1,11 @@
 import React from 'react'
-import { Typography } from '@mui/material'
+import ItemList from './ItemList';
 
-const ItemListContainer = ({greeting}) => {
+
+const ItemListContainer = () => {
   return (
     <div>
-        <Typography variant='h1' fontWeight="800">
-            {greeting}
-        </Typography>
+        <ItemList/>
     </div>
   )
 }
