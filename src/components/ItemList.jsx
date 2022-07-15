@@ -38,9 +38,8 @@ const ItemList = () => {
       ) : (
         <Grid container spacing={3}>
           {products.map((p, index) => (
-            <Grid item xs={12} md={3}>
+            <Grid key={index} item xs={12} md={3}>
               <Item
-                key={index}
                 title={p.title}
                 image={p.image}
                 description={p.description}

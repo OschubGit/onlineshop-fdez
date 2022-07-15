@@ -18,10 +18,8 @@ const Item = ({title, image, description, category, price}) => {
         <Typography sx={{ mb: 1.5 }}>
           {description}
         </Typography>
-        <Typography variant="body2">
           <Chip label={category} color="primary" variant="outlined" />
           <br />
-        </Typography>
       </CardContent>
       <CardActions>
         <Button size="small" variant='contained'>Comprar por {price}</Button>
