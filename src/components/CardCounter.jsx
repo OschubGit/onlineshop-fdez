@@ -1,39 +1,120 @@
-import React from "react";
-import { Paper, Button, Typography, Box } from "@mui/material";
+import React, {useState} from "react";
+import {
+  Button,
+  Typography,
+  Card,
+  CardContent,
+  CardActions,
+  CardMedia,
+  Box,
+  Chip,
+} from "@mui/material";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 
-const CardCounter = ({
-  stock,
-  initial,
-  onAdd,
-  onRest,
-  disabled,
-  disabledRest,
-}) => {
+const CardCounter = ({product, stock, price, initial, onAdd}) => {
+  const [counter, setCounter] = useState(initial);
+  const [totalPrice, setTotalPrice] = useState(price);
+  const [totalStock, setTotalStock] = useState(stock)
+
+  // onClick add products
+  const add = () => {
+    if (counter < totalStock) {
+      setCounter(counter + 1);
+      const result = counter * price + price;
+      setTotalPrice(result)
+    }
+  };
+  
+  // onClick subtract products
+  const subtract = () => {
+    setCounter(counter - 1);
+    const resultRest = totalPrice - price;
+    setTotalPrice(resultRest)
+  };
+
+  // onClick buy products
+  const onBuy = () => {
+    setTotalStock(totalStock - counter)
+    setTotalPrice(totalPrice - price)
+    if (totalStock < 1) {
+      setCounter(0)
+    } else {
+      setCounter(initial)
+    }
+  }
+
+  // onClick reset values
+  const handleReset = () => {
+      setTotalPrice(price)
+      setCounter(initial)
+      setTotalStock(stock)
+  }
+
   return (
     <div>
-      <Paper sx={{ p: 3, minWidth: "300px" }}>
-        <Typography variant="h6">Stock: {stock}</Typography>
-        <Box mt={3}/>
+      <Card sx={{ minWidth: 275 }}>
+        <CardContent>
+          <CardMedia  
+            component="img"
+            height="100%"
+            image={product.image}
+            alt={product.title}
+            className={totalStock === 0 ? "cardImageHidden" : "cardImage"}
+          />
+          <Box mt={2} />
+          <Typography align="center" variant="h6" gutterBottom>
+            {product.title} ~ {price}€
+          </Typography>
+          <div
+            style={{ width: "100%", display: "flex", justifyContent: "center" }}
+          >
+            <Chip size="small" label={product.category} />
+          </div>
+        </CardContent>
+        <Typography align="center" variant="h6">
+          Stock: {totalStock}
+        </Typography>
         <div className="counter">
-            <Button
-            variant="outlined"
+          <Button
+            size="samll"
             color="primary"
-            onClick={onRest}
-            disabled={disabledRest}
-            >
-            Menos
-            </Button>
-            <Typography variant="h6">{initial}</Typography>
-            <Button
-            variant="outlined"
+            onClick={subtract}
+            disabled={(counter < 1 && true) || (stock === 0 && true)}
+          >
+            <RemoveCircleOutlineIcon />
+          </Button>
+          <Typography variant="h6">{counter}</Typography>
+          <Button
+            size="samll"
             color="secondary"
-            onClick={onAdd}
-            disabled={disabled}
-            >
-            Mas
-            </Button>
+            onClick={add}
+            disabled={counter >= totalStock && true}
+          >
+            <AddCircleOutlineIcon />
+          </Button>
         </div>
-      </Paper>
+        <CardActions>
+          {counter > 0 ? (
+            <div className="btnsCard">
+            <Button size="small" fullWidth variant="outlined" onClick={() => onAdd(counter)}>
+              Añadir a la cesta 
+            </Button>
+            <Button size="small" fullWidth variant="contained" onClick={onBuy}>
+              Comprar por {totalPrice} €
+            </Button>
+            </div>
+          ) : (
+            <Button disabled size="small" fullWidth variant="outlined">
+              {totalStock === 0 ? "Agotado" : "Añade productos"}
+            </Button>
+          )}
+        </CardActions>
+      </Card>
+      <Box mt={2}/>
+      <Button size="small" fullWidth variant="outlined" color="primary" onClick={handleReset}>
+        Reset
+      </Button>
     </div>
   );
 };

@@ -10,7 +10,7 @@ import ItemListContainer from './components/ItemListContainer';
 function App() {
   return (
     <div className="App">
-          <Navbar/>
+      <Navbar/>
       <Container maxWidth="lg" sx={{py: 5}}>
         <ItemListContainer/>
       </Container>
