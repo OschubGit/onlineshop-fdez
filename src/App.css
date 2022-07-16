@@ -35,15 +35,6 @@ body{
   align-items: center;
 }
 
-.container{
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: calc(100vh - 69px);
-  background-color: #282c34;
-  color: white;
-}
 
 .counter{
   display: flex;
@@ -52,6 +43,15 @@ body{
   justify-content: space-between;
 }
 
+.cardImageHidden{
+  opacity: 0.2;
+}
+.btnsCard{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
 
 @keyframes App-logo-spin {
   from {
