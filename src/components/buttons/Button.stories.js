@@ -4,10 +4,6 @@ import Button from "./Button";
 export default {
     title: "Button",
     component: Button, 
-    argTypes: {
-        backgroundColor: { control: 'color' },
-        color: {control: 'color'}
-      },
 }
 
 const Template = args => <Button {...args}/>;
@@ -18,7 +14,6 @@ Primary.args = {
     variant: "primary",
     children: "Primary",
     disabled: false,
-    backgroundColor: "#d12465"
 }
 
 export const Secondary = Template.bind({});

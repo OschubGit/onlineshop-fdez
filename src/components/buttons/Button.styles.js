@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const SimpleButton = styled.button`
     background-color: ${(props)=> props.variant === "primary" ? "transparent" : "greenyellow"};
-    color: ${(props)=> props.variant === "primary" ? props.color : "black"};
-    border: ${(props) => props.disabled === true && "1px solid"+props.color};
+    color: ${(props)=> props.variant === "primary" ? "white" : "black"};
+    border: ${(props) => props.disabled === true && "1px solid black"};
     border-radius: 3px;
     padding: 12px;
     text-align: center;
