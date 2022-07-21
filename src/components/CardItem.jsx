@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   Typography,
@@ -12,7 +13,7 @@ import {
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 
-const CardCounter = ({product, stock, price, initial, onAdd}) => {
+const CardItem = ({product, stock, price, initial, onAdd}) => {
   const [counter, setCounter] = useState(initial);
   const [totalPrice, setTotalPrice] = useState(price);
   const [totalStock, setTotalStock] = useState(stock)
@@ -55,17 +56,21 @@ const CardCounter = ({product, stock, price, initial, onAdd}) => {
     <div>
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
+          <Link to={`/item/${product.id}`}>
           <CardMedia  
             component="img"
             height="100%"
             image={product.image}
             alt={product.title}
             className={totalStock === 0 ? "cardImageHidden" : "cardImage"}
-          />
+            />
+            </Link>
           <Box mt={2} />
+          <Link to={`/item/${product.id}`}>
           <Typography align="center" variant="h6" gutterBottom>
             {product.title} ~ {price}€
           </Typography>
+          </Link>
           <div
             style={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
@@ -119,4 +124,4 @@ const CardCounter = ({product, stock, price, initial, onAdd}) => {
   );
 };
 
-export default CardCounter;
+export default CardItem;
