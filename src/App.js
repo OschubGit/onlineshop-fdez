@@ -6,7 +6,6 @@ import Navbar from './components/Navbar';
 /* material components */
 import {Container} from "@mui/material";
 import ItemListContainer from './components/ItemListContainer';
-import ItemList from './components/ItemList';
 /* routing */
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer';
