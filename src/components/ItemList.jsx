@@ -1,21 +1,8 @@
-import React, { useState} from "react";
-import { Grid, Alert } from "@mui/material";
+import React from "react";
+import { Grid } from "@mui/material";
 import CardItem from "./CardItem";
 
 const ItemList = ({products}) => {
-  const [alert, setAlert] = useState(false);
-  const [alertMessage, setAlertMessage] = useState(false);
-
-  // OnAdd btn to show alert message products added
-  const onAdd = (counter) => {
-    setAlert(true);
-    setAlertMessage(counter);
-
-    // Delete alert message
-    setTimeout(() => {
-      setAlert(false);
-    }, 3000);
-  };
 
   return (
     <div>
@@ -27,17 +14,9 @@ const ItemList = ({products}) => {
                 initial={0}
                 stock={p.stock}
                 price={p.price}
-                onAdd={onAdd}
               />
             </Grid>
           ))}
-          <Grid item xs={12}>
-            {alert && (
-              <Alert severity="success">
-                Has añadido {alertMessage} productos
-              </Alert>
-            )}
-          </Grid>
         </Grid>
     </div>
   );

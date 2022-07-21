@@ -12,7 +12,7 @@ const [loading, setLoading] = useState(true);
 
 useEffect(() => {
 
-    customFetch(2000, productsApi.filter((item) => item.id === id))
+    customFetch(1000, productsApi.filter((item) => item.id === id))
         .then(response => {
           setProduct(response)
           setLoading(false)

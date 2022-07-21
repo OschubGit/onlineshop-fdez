@@ -6,7 +6,7 @@ import Nav from "./Nav";
 const Navbar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar style={{background: "transparent"}} position="static">
+      <AppBar style={{ background: "white",color: "black", boxShadow: "none", borderBottom: "0.2px solid #e9e9e9ey"}} position="static">
         <Toolbar>
           <IconButton
             size="large"

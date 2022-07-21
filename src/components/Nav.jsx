@@ -17,7 +17,7 @@ const Nav = () => {
           </Link>
         </Typography>
         {categories.map((m, index) => (
-        <Typography key={index} sx={{ minWidth: 100 }}>
+        <Typography className="categories-nav" key={index} sx={{ minWidth: 100 }}>
           <Link to={`/category/${m.category}`} color="inherit" underline="none">
             {m.category}
           </Link>

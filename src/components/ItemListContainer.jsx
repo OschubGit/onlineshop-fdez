@@ -4,6 +4,7 @@ import customFetch from '../utils/customFetch';
 import { useParams } from 'react-router-dom';
 import productsApi from './productsApi';
 import Loading from './Loading';
+import { Box } from '@mui/material';
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
@@ -12,14 +13,14 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     if (!category) {
-      customFetch(2000, productsApi)
+      customFetch(1000, productsApi)
       .then((response) => {
         setProducts(response);
         setLoading(false)
       })
       .catch((err) => console.error(err));
     } else {
-      customFetch(2000, productsApi.filter((item) => item.category === category))
+      customFetch(1000, productsApi.filter((item) => item.category === category))
       .then((response) => {
         setProducts(response);
         setLoading(false)
@@ -33,7 +34,11 @@ const ItemListContainer = () => {
       (
         <Loading/>
         ) : (
-        <ItemList products={products}  />
+        <>
+        <img width="100%" src='/images/springfield/spring.jpg' alt='product'/>
+        <Box mt={3}/>
+        <ItemList products={products} />
+        </>
       )
   )
 }

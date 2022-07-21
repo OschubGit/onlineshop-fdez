@@ -10,7 +10,7 @@ const ItemDetail = ({product}) => {
 
   return (
     <>
-    <Typography variant="h3">
+    <Typography variant="h3" color={"#000"}>
         Detalle de producto
       </Typography>
       <Divider/>
@@ -18,7 +18,7 @@ const ItemDetail = ({product}) => {
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
-        height="300"
+        height="100%"
         image={product.image}
         alt="product"
       />

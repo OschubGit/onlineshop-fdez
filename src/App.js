@@ -18,7 +18,7 @@ function App() {
       <div className="App">
         <Navbar/>
 
-        <Container maxWidth="lg" sx={{py: 5, color: "#fff"}}>
+        <Container maxWidth="xl" sx={{py: 5, color: "#fff"}}>
           <Routes>
             <Route 
               path='/' 

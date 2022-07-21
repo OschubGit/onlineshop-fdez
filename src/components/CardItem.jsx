@@ -13,7 +13,7 @@ import {
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 
-const CardItem = ({product, stock, price, initial, onAdd}) => {
+const CardItem = ({product, stock, price, initial}) => {
   const [counter, setCounter] = useState(initial);
   const [totalPrice, setTotalPrice] = useState(price);
   const [totalStock, setTotalStock] = useState(stock)
@@ -43,13 +43,6 @@ const CardItem = ({product, stock, price, initial, onAdd}) => {
     } else {
       setCounter(initial)
     }
-  }
-
-  // onClick reset values
-  const handleReset = () => {
-      setTotalPrice(price)
-      setCounter(initial)
-      setTotalStock(stock)
   }
 
   return (
@@ -102,24 +95,18 @@ const CardItem = ({product, stock, price, initial, onAdd}) => {
         <CardActions>
           {counter > 0 ? (
             <div className="btnsCard">
-            <Button size="small" fullWidth variant="outlined" onClick={() => onAdd(counter)}>
-              Añadir a la cesta 
-            </Button>
-            <Button size="small" fullWidth variant="contained" onClick={onBuy}>
+            <Button size="large" fullWidth variant="outlined" onClick={onBuy}>
               Comprar por {totalPrice} €
             </Button>
             </div>
           ) : (
-            <Button disabled size="small" fullWidth variant="outlined">
+            <Button disabled size="large" fullWidth variant="outlined">
               {totalStock === 0 ? "Agotado" : "Añade productos"}
             </Button>
           )}
         </CardActions>
       </Card>
       <Box mt={2}/>
-      <Button size="small" fullWidth variant="outlined" color="primary" onClick={handleReset}>
-        Reset
-      </Button>
     </div>
   );
 };
