@@ -1,25 +1,28 @@
 import React from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 /* material ui components */
-import { Link, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import CardWidget from "./CardWidget";
+import {categories} from "../utils/categories"
+
 
 const Nav = () => {
   return (
     <nav className="nav">
       <div className="nav-menu">
         <Typography variant="h6" sx={{ minWidth: 100, mr: 3 }}>
-          OnlineShop
-        </Typography>
-        <Typography sx={{ minWidth: 100 }}>
-          <Link href="#" color="inherit" underline="none">
-            Home
+          <Link to={"/"}>
+            OnlineShop
           </Link>
         </Typography>
-        <Typography sx={{ minWidth: 100 }}>
-          <Link href="#" color="inherit" underline="none">
-            Shop
+        {categories.map((m, index) => (
+        <Typography className="categories-nav" key={index} sx={{ minWidth: 100 }}>
+          <Link to={`/category/${m.category}`} color="inherit" underline="none">
+            {m.category}
           </Link>
         </Typography>
+        ))}
       </div>
       <div className="btn-login">
         <CardWidget/>

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   Typography,
@@ -12,7 +13,7 @@ import {
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 
-const CardCounter = ({product, stock, price, initial, onAdd}) => {
+const CardItem = ({product, stock, price, initial}) => {
   const [counter, setCounter] = useState(initial);
   const [totalPrice, setTotalPrice] = useState(price);
   const [totalStock, setTotalStock] = useState(stock)
@@ -44,28 +45,25 @@ const CardCounter = ({product, stock, price, initial, onAdd}) => {
     }
   }
 
-  // onClick reset values
-  const handleReset = () => {
-      setTotalPrice(price)
-      setCounter(initial)
-      setTotalStock(stock)
-  }
-
   return (
     <div>
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
+          <Link to={`/item/${product.id}`}>
           <CardMedia  
             component="img"
             height="100%"
             image={product.image}
             alt={product.title}
             className={totalStock === 0 ? "cardImageHidden" : "cardImage"}
-          />
+            />
+            </Link>
           <Box mt={2} />
+          <Link to={`/item/${product.id}`}>
           <Typography align="center" variant="h6" gutterBottom>
             {product.title} ~ {price}€
           </Typography>
+          </Link>
           <div
             style={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
@@ -97,26 +95,20 @@ const CardCounter = ({product, stock, price, initial, onAdd}) => {
         <CardActions>
           {counter > 0 ? (
             <div className="btnsCard">
-            <Button size="small" fullWidth variant="outlined" onClick={() => onAdd(counter)}>
-              Añadir a la cesta 
-            </Button>
-            <Button size="small" fullWidth variant="contained" onClick={onBuy}>
+            <Button size="large" fullWidth variant="outlined" onClick={onBuy}>
               Comprar por {totalPrice} €
             </Button>
             </div>
           ) : (
-            <Button disabled size="small" fullWidth variant="outlined">
+            <Button disabled size="large" fullWidth variant="outlined">
               {totalStock === 0 ? "Agotado" : "Añade productos"}
             </Button>
           )}
         </CardActions>
       </Card>
       <Box mt={2}/>
-      <Button size="small" fullWidth variant="outlined" color="primary" onClick={handleReset}>
-        Reset
-      </Button>
     </div>
   );
 };
 
-export default CardCounter;
+export default CardItem;
