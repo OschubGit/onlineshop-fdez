@@ -11,7 +11,6 @@ const ItemList = ({products}) => {
             <Grid key={index} item xs={12} sm={6} md={3}>
               <CardItem
                 product={p}
-                initial={0}
                 stock={p.stock}
                 price={p.price}
               />

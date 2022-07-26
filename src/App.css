@@ -73,6 +73,62 @@ a:visited{
   color: inherit
 }
 
+.itemDetail{
+  color: #000;
+}
+
+.itemDetailInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.itemDetailInfo__size{
+  display: flex;
+}
+.itemDetailInfo__stock{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.itemDetailInfo__size p{
+  display: flex;
+  gap: 12px;
+  border: 1.6px solid grey;
+  padding: 3px;
+  margin: 3px;
+  box-sizing: border-box;
+}
+.itemDetailInfo__size p:hover{
+  display: flex;
+  gap: 12px;
+  border: 2px solid black;
+  padding: 3px;
+  margin: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.itemDetailGrid__images{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+}
+
+.itemDetailGrid__images img:hover{
+  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAADNQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwsLC/v7+9fX1AAAABAQEkMhM2QAAABF0Uk5TACJxruDxHp//UG8S////tv/O1UKnAAAAf0lEQVR4nHVSWRaAIAjEEiX3+582sxJfr5kPRQbZiW6YbbfMdt8MrXBeJrxT/cGygI9XH+SD8Nh/9SLjT5zPlKYYO6Fxc9YMekLqoBSV3Rp5JQLVf6KSHXdTYohi6aqtpVw68n2mi2JMQFcwOEwXFghbgpsI244HhUeLl+FvfU7fhhAZnhMs9gAAAABJRU5ErkJggg==),auto;
+}
+
+.cardItem__description{
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
