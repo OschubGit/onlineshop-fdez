@@ -41,7 +41,7 @@ const Cart = () => {
               gap: "20px",
             }}
           >
-            {/* <img width="85px" src={c.images[0].image} alt="pimage" /> */}
+            <img width="85px" src={c.images[0].image} alt="pimage" />
             <div>
               <strong>Nombre de producto:</strong> {c.title}
             </div>

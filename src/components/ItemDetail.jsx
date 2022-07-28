@@ -31,7 +31,8 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
     setTotalStock(totalStock - counter);
     const result = counter * product.price;
     setTotalPrice(result);
-    test.addToCart(product = {...product, qty})
+
+    test.addToCart(product, qty)
     
 
     if (totalStock < 1) {
