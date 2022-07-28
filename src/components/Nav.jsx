@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 /* material ui components */
-import { Typography } from "@mui/material";
+import { Typography, Button } from "@mui/material";
 import CardWidget from "./CardWidget";
 import {categories} from "../utils/categories"
 
@@ -22,6 +22,9 @@ const Nav = () => {
           </Link>
         </Typography>
         ))}
+        <Link to={"/admin"}>
+            <Button variant="contained" color="primary">Crear Producto</Button>
+        </Link>
       </div>
       <div className="btn-login">
         <CardWidget/>
