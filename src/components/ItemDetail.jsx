@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Button from "@mui/material/Button";
-import { Typography, Divider, Box, Grid } from "@mui/material";
+import { Typography, Divider, Box, Grid, Paper, Rating } from "@mui/material";
 import ItemCounter from "./ItemCounter";
 import { Link } from "react-router-dom";
+import { CartContext } from "../contexts/CartContext";
 
 const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
   const [counter, setCounter] = useState(initial);
   const [totalPrice, setTotalPrice] = useState(product.price);
   const [totalStock, setTotalStock] = useState(stock);
+  const test = useContext(CartContext)
+
 
   // onClick add products
   const onAdd = () => {
@@ -28,6 +31,10 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
     setTotalStock(totalStock - counter);
     const result = counter * product.price;
     setTotalPrice(result);
+
+    test.addToCart(product, qty)
+    
+
     if (totalStock < 1) {
       setCounter(0);
     } else {
@@ -43,7 +50,7 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
           <div className="itemDetailGrid">
             <div className="itemDetailGrid__images">
               {product &&
-                product.image.map((i, index) => (
+                product.images.map((i, index) => (
                   <div key={index}>
                     <img width="100%" src={i.image} alt="ItemDetailImage" />
                   </div>
@@ -62,11 +69,11 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
             <div className="itemDetailInfo__price">
               <Typography variant="body2">{product.description}</Typography>
             </div>
-            <div className="itemDetailInfo__size">
+            {/* <div className="itemDetailInfo__size">
             Size:
               {product &&
                 product.sizes.map((s, index) => <p key={index}>{s.size}</p>)}
-            </div>
+            </div> */}
             <Divider />
             <>
               {totalStock !== stock ? (
@@ -87,7 +94,7 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
                     variant="outlined"
                     color="primary"
                     fullWidth
-                    onClick={onBuy}
+                    onClick={() => onBuy(counter)}
                     disabled={totalStock === 0}
                   >
                     Añadir a la cesta
@@ -98,22 +105,23 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
                 </>
               ) : (
                 <>
-                <ItemCounter
-                  counter={counter}
-                  subtract={subtract}
-                  onAdd={onAdd}
-                  isDisabledAdd={
-                    (stock === 0 && true) || (counter === totalStock && true)
-                  }
-                  isDisabledSubtract={
-                    (counter >= totalStock && false) || (counter === 0 && true)
-                  }
-                />
-                <Button
+                  <ItemCounter
+                    counter={counter}
+                    subtract={subtract}
+                    onAdd={onAdd}
+                    isDisabledAdd={
+                      (stock === 0 && true) || (counter === totalStock && true)
+                    }
+                    isDisabledSubtract={
+                      (counter >= totalStock && false) ||
+                      (counter === 0 && true)
+                    }
+                  />
+                  <Button
                     variant="outlined"
                     color="primary"
                     fullWidth
-                    onClick={onBuy}
+                    onClick={() => onBuy(counter)}
                     disabled={totalStock === 0}
                   >
                     Añadir a la cesta
@@ -128,6 +136,17 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
             </div>
           </div>
         </Grid>
+      </Grid>
+      <Grid container spacing={3}>
+        {product.comments.map((c, index) => (
+            <Grid key={index} item xs={12} md={4}>
+              <Paper>
+                <Typography>{c.name}</Typography>
+                <Typography>{c.createdAt}</Typography>
+                <Rating disabled name="simple-controlled" value={c.rating} />
+              </Paper>
+            </Grid>
+          ))}
       </Grid>
     </div>
   );

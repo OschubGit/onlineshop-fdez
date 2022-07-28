@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 
 const CardItem = ({product}) => {
-  const images = product.image[0].image;
+  const images = product.images[0].image;
 
   return (
     <div>
