@@ -7,7 +7,7 @@ const ItemList = ({products}) => {
   return (
     <div>
         <Grid container spacing={3}>
-          {products.map((p, index) => (
+          {products && products.map((p, index) => (
             <Grid key={index} item xs={12} sm={6} md={3}>
               <CardItem
                 product={p}

@@ -10,15 +10,18 @@ import ItemListContainer from './components/ItemListContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
+import Admin from './components/Admin';
+import CartContextProvider from './contexts/CartContext';
 
 
 function App() {
   return (
+    <CartContextProvider>
     <BrowserRouter>
       <div className="App">
         <Navbar/>
 
-        <Container maxWidth="xl" sx={{py: 5, color: "#fff"}}>
+        <Container data-barba="container" data-barba-namespace="home" maxWidth="xl" sx={{py: 5, color: "#fff"}}>
           <Routes>
             <Route 
               path='/' 
@@ -36,11 +39,16 @@ function App() {
               path='/cart' 
               element={<Cart/>}
             />
+            <Route 
+              path='/admin' 
+              element={<Admin/>}
+            />
           </Routes>
         </Container>
 
       </div>
     </BrowserRouter>
+    </CartContextProvider>
   );
 }
 
