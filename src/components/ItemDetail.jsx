@@ -114,9 +114,11 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
                   >
                     Añadir a la cesta
                   </Button>
-                  <Button variant="contained" color="secondary">
+                  {totalStock < stock && (
+                    <Button variant="contained" color="secondary">
                     <Link to={"/cart"}>Ver cesta</Link>
                   </Button>
+                  )}
             </>
             <div className="itemDetailInfo__stock">
               <Typography align="center" variant="caption">

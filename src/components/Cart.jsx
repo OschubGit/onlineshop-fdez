@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Typography, Paper, Button, Grid, Divider, Alert } from "@mui/material";
+import { Typography, Paper, Button, Grid, Divider, Alert, Box } from "@mui/material";
 import { CartContext } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
 
@@ -38,7 +38,7 @@ const Cart = () => {
 
 
   return (
-    test.cartList ? (
+    test.cartList.length > 0 ? (
     <Grid container spacing={3}>
       <Grid item xs={12}>
       <Typography variant="h1" color="secondary">
@@ -70,7 +70,7 @@ const Cart = () => {
                   <strong>Cantidad:</strong> {c.qty}
                 </div>
                 <div>
-                  <strong>Total:</strong> {c.total}
+                  <strong>Total:</strong> {c.total}€
                 </div>
                 <Button onClick={() => removeItem(cartProducts, c.id)}>
                   Delete
@@ -83,20 +83,24 @@ const Cart = () => {
         </div>
       </Grid>
       <Grid item xs={12} md={3}>
-        <Paper>
-          <Typography>Desglose</Typography>
+        <Paper style={{padding: "20px"}}>
+          <Typography variant="h6">Desglose</Typography>
           <Divider/>
+          <Box mt={3}/>
+          <ul style={{paddingLeft: "20px"}}>
           {cartProducts && cartProducts.map((m, index) => (
-            <div key={index}>
-            <Typography>{m.title} ~ x{m.qty} ~ Total:{m.total}</Typography>
-            </div>
+            <li key={index}>
+            <Typography variant="body1">{m.title} ~ qty: x{m.qty} ~ Total:{m.total}€</Typography>
+            <Divider/>
+            </li>
           ))}
+          </ul>
           {totalItems !== 0 && (
             <>
-            <Divider/>
-            <Typography>Subtotal:{totalItems}</Typography>
-            <Typography>IVA:{totalTax}</Typography>
-            <Typography>Total:{totalWithTax}</Typography>
+            <Box mt={3}/>
+            <Typography variant="subtitle1">Subtotal: {totalItems}€</Typography>
+            <Typography variant="subtitle1">IVA: {totalTax}€</Typography>
+            <Typography variant="subtitle1" fontWeight={"bold"}>Total: {totalWithTax && totalWithTax.toFixed(2)}€</Typography>
             </>
           )}
         </Paper>

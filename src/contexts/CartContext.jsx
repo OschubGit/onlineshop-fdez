@@ -32,7 +32,7 @@ const CartContextProvider = ({children}) => {
         setQuantity(allQtyItems)
         /* return allQtyItems.reduce(((previousValue, currentValue) => previousValue + currentValue), 0) */
     }
-    // Aquí veo que al primer click sale vacio [], pero a partir de ahi me suma los número que es como lo quiero tener
+    // Aquí veo que al primer click sale vacio [], pero a partir de ahi me suma los número que es como lo quiero.
     console.log(quantity)
 
     const deleteItemFromCard = (item, id) => {
