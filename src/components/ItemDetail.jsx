@@ -9,15 +9,7 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
   const [counter, setCounter] = useState(initial);
   const [totalPrice, setTotalPrice] = useState(product.price);
   const [totalStock, setTotalStock] = useState(stock);
-  const test = useContext(CartContext)
-
-
-  // onClick add products
-  const onAdd = () => {
-    if (counter < totalStock) {
-      setCounter(counter + 1);
-    }
-  };
+  const test = useContext(CartContext);
 
   // onClick subtract products
   const subtract = () => {
@@ -26,20 +18,44 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
     setTotalPrice(resultRest);
   };
 
+  // onClick add products
+  const onAdd = () => {
+    if (counter < totalStock) {
+      setCounter(counter + 1);
+    }
+  };
+
   // onClick buy products
-  const onBuy = (qty) => {
+  const onBuy = (qty, id) => {
+
     setTotalStock(totalStock - counter);
+
     const result = counter * product.price;
+    
     setTotalPrice(result);
 
-    test.addToCart(product, qty)
-    
+    test.addToCart(product, qty, result);
+
+    test.calcQuantity(counter)
+    //Si hacemos un console del counter vemos que agrega bien el num
+    console.log(counter);
 
     if (totalStock < 1) {
       setCounter(0);
     } else {
       setCounter(initial);
     }
+
+    fetch(`https://62e246abe8ad6b66d856e6b5.mockapi.io/api/coder/allcloths/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        stock: totalStock - counter,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }).then((response) => response.json())
+
   };
 
   return (
@@ -76,8 +92,7 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
             </div> */}
             <Divider />
             <>
-              {totalStock !== stock ? (
-                <>
+                  {/* Muestra btn de comprar */}
                   <ItemCounter
                     counter={counter}
                     subtract={subtract}
@@ -94,40 +109,16 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
                     variant="outlined"
                     color="primary"
                     fullWidth
-                    onClick={() => onBuy(counter)}
+                    onClick={() => onBuy(counter, product.id)}
                     disabled={totalStock === 0}
                   >
                     Añadir a la cesta
                   </Button>
-                  <Button variant="contained" color="secondary">
-                    <Link to={"/cart"}>Comprar</Link>
+                  {totalStock < stock && (
+                    <Button variant="contained" color="secondary">
+                    <Link to={"/cart"}>Ver cesta</Link>
                   </Button>
-                </>
-              ) : (
-                <>
-                  <ItemCounter
-                    counter={counter}
-                    subtract={subtract}
-                    onAdd={onAdd}
-                    isDisabledAdd={
-                      (stock === 0 && true) || (counter === totalStock && true)
-                    }
-                    isDisabledSubtract={
-                      (counter >= totalStock && false) ||
-                      (counter === 0 && true)
-                    }
-                  />
-                  <Button
-                    variant="outlined"
-                    color="primary"
-                    fullWidth
-                    onClick={() => onBuy(counter)}
-                    disabled={totalStock === 0}
-                  >
-                    Añadir a la cesta
-                  </Button>
-                </>
-              )}
+                  )}
             </>
             <div className="itemDetailInfo__stock">
               <Typography align="center" variant="caption">
@@ -139,14 +130,14 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
       </Grid>
       <Grid container spacing={3}>
         {product.comments.map((c, index) => (
-            <Grid key={index} item xs={12} md={4}>
-              <Paper>
-                <Typography>{c.name}</Typography>
-                <Typography>{c.createdAt}</Typography>
-                <Rating disabled name="simple-controlled" value={c.rating} />
-              </Paper>
-            </Grid>
-          ))}
+          <Grid key={index} item xs={12} md={4}>
+            <Paper>
+              <Typography>{c.name}</Typography>
+              <Typography>{c.createdAt}</Typography>
+              <Rating disabled name="simple-controlled" value={c.rating} />
+            </Paper>
+          </Grid>
+        ))}
       </Grid>
     </div>
   );
