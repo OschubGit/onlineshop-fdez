@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 /* material ui components */
 import { Typography, Button } from "@mui/material";
 import CardWidget from "./CardWidget";
 import {categories} from "../utils/categories"
+import { CartContext } from "../contexts/CartContext";
 
 
 const Nav = () => {
+  const test = useContext(CartContext)
+
   return (
     <nav className="nav">
       <div className="nav-menu">
@@ -26,9 +29,11 @@ const Nav = () => {
             <Button variant="contained" color="primary">Crear Producto</Button>
         </Link>
       </div>
+      {test.cartList.length > 0 && (
       <div className="btn-login">
         <CardWidget/>
       </div>
+      )}
     </nav>
   );
 };

@@ -27,17 +27,14 @@ const CartContextProvider = ({children}) => {
         }
     }
     
-    const calcQuantity = (counter) => {
-        let allQtyItems = cartList.map((m) => m.qty)
+    const calcQuantity = () => {
+        let allQtyItems = cartList.reduce((previousValue, currentValue) => previousValue + currentValue.qty, 0)
         setQuantity(allQtyItems)
-        /* return allQtyItems.reduce(((previousValue, currentValue) => previousValue + currentValue), 0) */
+        return allQtyItems;
     }
-    // Aquí veo que al primer click sale vacio [], pero a partir de ahi me suma los número que es como lo quiero.
-    console.log(quantity)
 
     const deleteItemFromCard = (item, id) => {
         const deleteItemProd = item && item.filter((f) => f.id !== id);
-        console.log(deleteItemProd)
         setCartList(deleteItemProd);
       };
 
