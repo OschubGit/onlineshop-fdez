@@ -1,14 +1,17 @@
 import React, { useState, useContext } from "react";
 import Button from "@mui/material/Button";
-import { Typography, Divider, Box, Grid, Paper, Rating } from "@mui/material";
+import { Typography, Divider, Box, Grid } from "@mui/material";
 import ItemCounter from "./ItemCounter";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
+import { collection, doc, increment, setDoc, updateDoc } from "firebase/firestore";
+import { db } from "../utils/firebaseConfig";
 
 const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
   const [counter, setCounter] = useState(initial);
   const [totalPrice, setTotalPrice] = useState(product.price);
   const [totalStock, setTotalStock] = useState(stock);
+  const {id} = useParams()
   const test = useContext(CartContext);
 
   // onClick subtract products
@@ -28,7 +31,7 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
   // onClick buy products
   const onBuy = (qty, id) => {
 
-    setTotalStock(totalStock - counter);
+    setTotalStock(totalStock - qty);
 
     const result = counter * product.price;
     
@@ -44,18 +47,11 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
       setCounter(initial);
     }
 
-    fetch(`https://62e246abe8ad6b66d856e6b5.mockapi.io/api/coder/allcloths/${id}`, {
-      method: "PUT",
-      body: JSON.stringify({
-        stock: totalStock - counter,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    }).then((response) => response.json())
-
   };
-
+  console.log(counter);
+  console.log(totalStock);
+  console.log(product);
+  console.log(test.cartList);
   return (
     <div className="itemDetail">
       <Box my={3} />
@@ -64,11 +60,11 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
           <div className="itemDetailGrid">
             <div className="itemDetailGrid__images">
               {product &&
-                product.images.map((i, index) => (
+                product.images.map(( i, index) => (
                   <div key={index}>
-                    <img width="100%" src={i.image} alt="ItemDetailImage" />
-                  </div>
-                ))}
+                    <img width="100%" src={i} alt="ItemDetailImage" />
+                    </div>
+                  ))}
             </div>
           </div>
         </Grid>
@@ -83,11 +79,6 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
             <div className="itemDetailInfo__price">
               <Typography variant="body2">{product.description}</Typography>
             </div>
-            {/* <div className="itemDetailInfo__size">
-            Size:
-              {product &&
-                product.sizes.map((s, index) => <p key={index}>{s.size}</p>)}
-            </div> */}
             <Divider />
             <>
                   {/* Muestra btn de comprar */}
@@ -125,17 +116,6 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
             </div>
           </div>
         </Grid>
-      </Grid>
-      <Grid container spacing={3}>
-        {product.comments.map((c, index) => (
-          <Grid key={index} item xs={12} md={4}>
-            <Paper>
-              <Typography>{c.name}</Typography>
-              <Typography>{c.createdAt}</Typography>
-              <Rating disabled name="simple-controlled" value={c.rating} />
-            </Paper>
-          </Grid>
-        ))}
       </Grid>
     </div>
   );

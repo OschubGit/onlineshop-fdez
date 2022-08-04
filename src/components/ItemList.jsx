@@ -13,7 +13,7 @@ const ItemList = ({products}) => {
                 product={p}
                 stock={p.stock}
                 price={p.price}
-              />
+                />
             </Grid>
           ))}
         </Grid>
