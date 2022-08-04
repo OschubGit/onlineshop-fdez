@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 
 const CardItem = ({product}) => {
-  const images = product.images[0].image;
+  const images = product.images;
 
   return (
     <div>
@@ -20,7 +20,7 @@ const CardItem = ({product}) => {
             <CardMedia  
               component="img"
               height="100%"
-              image={images}
+              image={images[0]}
               alt={product.title}
               className={"cardImage"}
               />
