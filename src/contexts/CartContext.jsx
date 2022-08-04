@@ -17,7 +17,7 @@ const CartContextProvider = ({children}) => {
     
     //functions context
 
-    const addToCart = (item, qty, totalPrice) => {
+    const addToCart = (item, qty, totalPrice, totalStock) => {
         const itemDuplicated = cartList.findIndex((f) => f.id === item.id)
         
         if (itemDuplicated !== -1) {
@@ -29,6 +29,7 @@ const CartContextProvider = ({children}) => {
                 id: item.id,
                 title: item.title,
                 description: item.description,
+                stock: totalStock,
                 price: item.price,
                 images: item.images,
                 qty: qty,

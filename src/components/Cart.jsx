@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from "react";
 import { Typography, Paper, Button, Grid, Divider, Alert, Box } from "@mui/material";
 import { CartContext } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
-import { DateTime } from "luxon";
 import { collection, doc, increment, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig";
 
@@ -34,32 +33,30 @@ const Cart = () => {
       id: item.id,
       title: item.title,
       price: item.price,
-      stock: item.stock,
       qty: item.qty,
       total: item.price * item.qty,
     }))
-
+    
     let createOrder = {
       buyer: {
         email: "oscarfdez@gmail.com",
         name: "Oscar",
         phoneNumber: 123456789,
-        date: serverTimestamp(),
-        /* items: itemCartForDataBase, */
-        total: totalWithTax,
-      }
+      },
+      date: serverTimestamp(),
+      items: itemCartForDataBase,
+      total: totalWithTax,
     }
 
     const createOrderInFirestore = async () => {
       const newOrderRef = doc(collection(db, "orders"))
       await setDoc(newOrderRef, createOrder)
-      console.log("addOrder");
       return newOrderRef
     }
     
     createOrderInFirestore()
       .then((result) => alert("Your oreder has been created. ID: " + result.id))
-      .catch((e) => console.log(e))
+      .catch((err) => console.log(err))
 
     test.cartList.forEach(async (item) => {
       const itemReference = doc(db, "products", item.id)

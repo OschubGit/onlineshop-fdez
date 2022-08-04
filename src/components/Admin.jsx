@@ -12,15 +12,13 @@ const Admin = () => {
   const [stock, setStock] = useState();
   const [category, setCategory] = useState();
 
-  const enviar = (e) => {
-    e.preventDefault();
-    setTitle();
+  const enviar = () => {
 
-    let createOrder = {
+    let createProduct = {
       title: title,
       description: description,
       price: price,
-      stock: stock,
+      stock: parseInt(stock),
       category: category,
       images: [
         "/images/springfield/pantalon_corto_lazo_1.jpeg",
@@ -32,7 +30,7 @@ const Admin = () => {
 
     const addProductToFirestore = async () => {
       const newOrder = doc(collection(db, "products"));
-      setDoc(newOrder, createOrder);
+      setDoc(newOrder, createProduct);
       return newOrder;
     };
 
@@ -47,7 +45,6 @@ const Admin = () => {
 
   return (
     <div>
-      <form onSubmit={enviar}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={2}>
             <TextField
@@ -113,12 +110,11 @@ const Admin = () => {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button size="large" variant="outlined" type="submit">
+            <Button size="large" variant="outlined" type="button" onClick={enviar}>
               Enviar
             </Button>
           </Grid>
         </Grid>
-      </form>
     </div>
   );
 };

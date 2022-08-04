@@ -4,8 +4,6 @@ import { Typography, Divider, Box, Grid } from "@mui/material";
 import ItemCounter from "./ItemCounter";
 import { Link, useParams } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
-import { collection, doc, increment, setDoc, updateDoc } from "firebase/firestore";
-import { db } from "../utils/firebaseConfig";
 
 const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
   const [counter, setCounter] = useState(initial);
@@ -37,7 +35,7 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
     
     setTotalPrice(result);
 
-    test.addToCart(product, qty, result);
+    test.addToCart(product, qty, result, totalStock);
 
     test.calcQuantity()
 
@@ -48,10 +46,7 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
     }
 
   };
-  console.log(counter);
-  console.log(totalStock);
-  console.log(product);
-  console.log(test.cartList);
+
   return (
     <div className="itemDetail">
       <Box my={3} />
