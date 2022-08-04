@@ -10,7 +10,7 @@ const CardWidget = () => {
   return (
     <Link to={"/cart"}>
         <IconButton aria-label="cart">
-        <Badge badgeContent={test.quantity} color="primary">
+        <Badge badgeContent={test.calcQuantity() || null} color="primary">
             <ShoppingCartIcon color='primary' />
         </Badge>
         </IconButton>

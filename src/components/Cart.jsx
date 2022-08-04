@@ -16,7 +16,6 @@ const Cart = () => {
   
   useEffect(() => {
     setCartProducts(test.cartList);
-    console.log(sumPrice);
   
     setTotalItems(result)
   
@@ -98,8 +97,8 @@ const Cart = () => {
           {totalItems !== 0 && (
             <>
             <Box mt={3}/>
-            <Typography variant="subtitle1">Subtotal: {totalItems}€</Typography>
-            <Typography variant="subtitle1">IVA: {totalTax}€</Typography>
+            <Typography variant="subtitle1">Subtotal: {totalItems && totalItems.toFixed(2)}€</Typography>
+            <Typography variant="subtitle1">IVA: {totalTax && totalTax.toFixed(2)}€</Typography>
             <Typography variant="subtitle1" fontWeight={"bold"}>Total: {totalWithTax && totalWithTax.toFixed(2)}€</Typography>
             </>
           )}

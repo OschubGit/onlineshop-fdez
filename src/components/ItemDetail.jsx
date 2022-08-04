@@ -36,9 +36,7 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
 
     test.addToCart(product, qty, result);
 
-    test.calcQuantity(counter)
-    //Si hacemos un console del counter vemos que agrega bien el num
-    console.log(counter);
+    test.calcQuantity()
 
     if (totalStock < 1) {
       setCounter(0);
