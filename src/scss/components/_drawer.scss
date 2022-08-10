@@ -1,0 +1,27 @@
+.gridNavigation{
+    padding-left: var(--space-m);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto 1fr;
+    height: 100%;
+
+    &_social{
+        @include flex-align-center;
+        & svg{
+            color: var(--indigo-dye);
+            font-size: var(--text-base);
+        }
+    }
+}
+.navigation{
+    list-style: none;
+
+    &_item{
+        font-size: var(--text-xs);
+        font-family: var(--main-font);
+        cursor: pointer;
+        &:hover{
+            font-weight: bold;
+        }
+    }
+}

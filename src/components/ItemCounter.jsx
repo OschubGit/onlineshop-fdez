@@ -1,7 +1,8 @@
 import React from "react";
-import { Button, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import Button from "./buttons/Button";
 
 const ItemCounter = ({
   subtract,
@@ -14,8 +15,7 @@ const ItemCounter = ({
     <>
       <div className="counter">
         <Button
-          size="samll"
-          color="primary"
+          className="cbutton cButton-outlined"
           onClick={subtract}
           disabled={isDisabledSubtract}
         >
@@ -23,8 +23,7 @@ const ItemCounter = ({
         </Button>
         <Typography variant="h6">{counter}</Typography>
         <Button
-          size="samll"
-          color="secondary"
+          className="cbutton cButton-outlined"
           onClick={onAdd}
           disabled={isDisabledAdd}
         >

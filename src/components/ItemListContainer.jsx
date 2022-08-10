@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
+import NoProducts from "../containers/NoProducts";
 import { useParams } from "react-router-dom";
 import Loading from "./Loading";
-import { Alert, Box, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import { getDataFromFirebase } from "../utils/getDataFirestore";
 
 const ItemListContainer = () => {
@@ -24,9 +25,15 @@ const ItemListContainer = () => {
     <Loading />
   ) : products.length > 0 ? (
     <>
-      <img width="100%" src="/images/springfield/spring.jpg" alt="product" />
-      <Box mt={3} />
-      <ItemList products={products} />
+      <div className="c-container grid" style={{position: "relative"}}>
+        <div className="line one"></div>
+        <div className="line two"></div>
+        <div className="line three"></div>
+        <div className="line four"></div>
+        <div className="col-12 col-xs-6 col-sm-8 col-md-12 col-xl-12">
+          <ItemList products={products} />
+        </div>
+      </div>
       <Button
         disabled={pagination > products.length}
         onClick={() => setPagination(pagination + 3)}
@@ -35,9 +42,7 @@ const ItemListContainer = () => {
       </Button>
     </>
   ) : (
-    <Alert variant="filled" severity="info">
-      No hay productos
-    </Alert>
+    <NoProducts/>
   );
 };
 

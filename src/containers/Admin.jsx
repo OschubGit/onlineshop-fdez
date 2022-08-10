@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, TextField, Select, MenuItem, Grid } from "@mui/material";
+import { TextField, Select, MenuItem, } from "@mui/material";
+import Button from "../components/buttons/Button";
 import { useState } from "react";
 import { categories } from "../utils/categories";
 import { collection, doc, setDoc } from "firebase/firestore";
@@ -44,10 +45,9 @@ const Admin = () => {
   };
 
   return (
-    <div>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={2}>
-            <TextField
+    <div className="c-container grid" style={{padding: "5rem 0"}}>
+      <div className="col-4 col-xl-4 col-md-4 col-sm-4 col-xs-6">
+      <TextField
               id="title"
               name="title"
               variant="outlined"
@@ -56,9 +56,9 @@ const Admin = () => {
               onChange={(e) => setTitle(e.target.value)}
               value={title || ""}
             />
-          </Grid>
-          <Grid item xs={12} md={2}>
-            <TextField
+      </div>
+      <div className="col-4 col-xl-4 col-md-4 col-sm-4 col-xs-6">
+      <TextField
               id="description"
               name="description"
               fullWidth
@@ -67,9 +67,9 @@ const Admin = () => {
               onChange={(e) => setDescription(e.target.value)}
               value={description || ""}
             />
-          </Grid>
-          <Grid item xs={12} md={2}>
-            <Select
+      </div>
+      <div className="col-4 col-xl-4 col-md-4 col-sm-4 col-xs-6">
+      <Select
               id="category"
               name="category"
               label="category"
@@ -84,9 +84,9 @@ const Admin = () => {
                 </MenuItem>
               ))}
             </Select>
-          </Grid>
-          <Grid item xs={12} md={2}>
-            <TextField
+      </div>
+      <div className="col-4 col-xl-4 col-md-4 col-sm-4 col-xs-6">
+      <TextField
               id="stock"
               name="stock"
               type="number"
@@ -96,9 +96,9 @@ const Admin = () => {
               onChange={(e) => setStock(e.target.value)}
               value={stock || ""}
             />
-          </Grid>
-          <Grid item xs={12} md={2}>
-            <TextField
+      </div>
+      <div className="col-4 col-xl-4 col-md-4 col-sm-4 col-xs-6">
+      <TextField
               id="price"
               name="price"
               type="number"
@@ -108,13 +108,10 @@ const Admin = () => {
               onChange={(e) => setPrice(e.target.value)}
               value={price || ""}
             />
-          </Grid>
-          <Grid item xs={12}>
-            <Button size="large" variant="outlined" type="button" onClick={enviar}>
-              Enviar
-            </Button>
-          </Grid>
-        </Grid>
+      </div>
+      <div className="col-4 col-xl-4 col-md-4 col-sm-4 col-xs-6">
+            <Button onClick={enviar} className="cButton cButton-primary">Enviar</Button>
+      </div>
     </div>
   );
 };

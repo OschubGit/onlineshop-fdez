@@ -1,0 +1,11 @@
+.grid_v2{
+    @include grid-templete( repeat(12, 1fr), 1fr);
+    gap: var(--grid-gap);
+    width: 100%;
+}
+.grid_v5{
+    display: grid;
+    grid-template-columns: var(--grid-main);
+    width: 100%;
+    gap: var(--grid-gap);
+}

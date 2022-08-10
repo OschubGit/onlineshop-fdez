@@ -1,0 +1,21 @@
+.noProducts{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: var(--grid-main);
+    grid-template-rows: var(--grid-main);
+    &_alert{
+        @include grid-start-end(2, 12, 3, 5)
+    }
+    &_related{
+        @include grid-start-end(2, 12, 6, 11);
+        @include grid-templete(repeat(5, 1fr), auto);
+        flex-wrap: wrap;
+        gap: 12px;
+        &-box{
+            padding: var(--space-xl);
+            border: 0.2px solid var(--prussian-blue);
+            @include flex-center;
+            cursor: pointer;
+        }
+    }
+}

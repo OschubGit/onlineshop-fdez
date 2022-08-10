@@ -1,0 +1,70 @@
+//base typo
+:root{
+    font-family: var(--main-font);
+}
+
+.primary-font {
+    font-family: var(--main-font);
+    font-weight: normal;
+}
+.secondary-font {
+    font-family: var(--secondary-font);
+    font-weight: normal;
+}
+.text-jumbo {
+    font-size: var(--text-jumbo);
+  }
+  
+  .text-display {
+    font-size: var(--text-display);
+  }
+  
+  .text-headline {
+    font-size: var(--text-headline);
+  }
+  
+  .text-title {
+    font-size: var(--text-title);
+  }
+  
+  .text-subheader {
+    font-size: var(--text-subheader);
+  }
+  
+  .text-body {
+    font-size: var(--text-base);
+  }
+  
+  .text-caption {
+    font-size: var(--text-caption);
+  }
+  
+  .text-note {
+    font-size: var(--text-note);
+  }
+
+  .c-container{
+    max-width: var(--maxwidth);
+    min-height: 100vh;
+    width: 100%;
+    padding-left: var(--container-padding) !important;
+    padding-right: var(--container-padding) !important;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .grid{
+    display: grid;
+    grid-template-columns: var(--grid-main);
+    grid-auto-rows: min-content;
+    gap: var(--grid-gap)
+  }
+
+  .styles-module_wrapper__1I_qj{
+    background-color: #000000ab !important;
+  }
+  
+  .styles-module_close__2I1sI{
+    display: none !important;
+  }

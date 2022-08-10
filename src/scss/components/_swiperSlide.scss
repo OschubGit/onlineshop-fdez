@@ -1,0 +1,11 @@
+.swiper {
+    width: 100%;
+    height: calc(100vh - 64px);
+  }
+
+.swiper-pagination-bullet-active{
+background-color: #000 !important;
+}
+.swiper-pagination-bullet{
+background-color: rgb(100, 100, 100) !important;
+}
