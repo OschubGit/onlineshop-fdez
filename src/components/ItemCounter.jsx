@@ -1,7 +1,6 @@
-import React from "react";
-import Button from "./buttons/Button";
-import { MdRemoveCircleOutline, MdControlPoint } from "react-icons/md";
-
+import React from 'react'
+import Button from './buttons/Button'
+import { MdRemoveCircleOutline, MdControlPoint } from 'react-icons/md'
 
 const ItemCounter = ({
   subtract,
@@ -29,9 +28,8 @@ const ItemCounter = ({
           <MdControlPoint />
         </Button>
       </div>
-  
     </>
-  );
-};
+  )
+}
 
-export default ItemCounter;
+export default ItemCounter

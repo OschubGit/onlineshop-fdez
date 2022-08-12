@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Alert = ({children, className}) => {
+const Alert = ({ children, className }) => {
   return (
     <div className={className}>
-        <span>{children}</span>
+      <span>{children}</span>
     </div>
   )
 }

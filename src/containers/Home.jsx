@@ -1,60 +1,50 @@
-import React, { useEffect } from "react";
-import { gsap } from "gsap";
-import { useState } from "react";
-import { SwiperSlider } from "../components/swiperSlider/SwiperSlider";
-import { SwiperSlide } from "swiper/react";
-import 'swiper/css';
+import React, { useEffect } from 'react'
+import { gsap } from 'gsap'
+import { useState } from 'react'
+import { SwiperSlider } from '../components/swiperSlider/SwiperSlider'
+import { SwiperSlide } from 'swiper/react'
+import 'swiper/css'
 import hoverEffect from 'hover-effect'
-import { Link } from "react-router-dom";
-import Button from "../components/buttons/Button";
-import Footer from "../containers/Footer";
-
+import { Link } from 'react-router-dom'
+import Button from '../components/buttons/Button'
+import Footer from '../containers/Footer'
 
 const Home = () => {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false)
   const timeline = gsap.timeline({
-    defaults: { ease: "power4.out", },
-  });
+    defaults: { ease: 'power4.out' },
+  })
 
-  
   useEffect(() => {
-    setToggle(false);
-    const TituloHome = document.querySelectorAll(".indexIntro");
-    const Image1 = document.querySelectorAll(".gsapAnimated");
-    const Image2 = document.querySelectorAll(".gsapAnimated_2");
-    const Text = document.querySelectorAll(".gsap-text-hover");
+    setToggle(false)
+    const TituloHome = document.querySelectorAll('.indexIntro')
+    const Image1 = document.querySelectorAll('.gsapAnimated')
+    const Image2 = document.querySelectorAll('.gsapAnimated_2')
+    const Text = document.querySelectorAll('.gsap-text-hover')
 
     timeline
-      .from(TituloHome, 
-        { opacity: 0, duration: 1, x: 0, y: 50, stagger:0.1})
-      .from(Image2,
-          { opacity: 0, duration: 1, x: -50, y: 50, stagger: 0.1})
-      .from(Image1,
-        { opacity: 0, duration: 1, x: -50, y: -50, stagger: 0.1})
-      .from(Text,
-        {opacity:0, duration:0.4, x:-10, y: 0,}
-      )
+      .from(TituloHome, { opacity: 0, duration: 1, x: 0, y: 50, stagger: 0.1 })
+      .from(Image2, { opacity: 0, duration: 1, x: -50, y: 50, stagger: 0.1 })
+      .from(Image1, { opacity: 0, duration: 1, x: -50, y: -50, stagger: 0.1 })
+      .from(Text, { opacity: 0, duration: 0.4, x: -10, y: 0 })
 
-
-      new hoverEffect({
-        parent: document.querySelector('.wrapperEffect'),
-        intensity: 0.3,
-        image1: '/images/trajes.jpeg',
-        image2: '/images/man_1.jpeg',
-        displacementImage: '/images/ripple.png'
-    });
-
-  }, [timeline]);
-
+    new hoverEffect({
+      parent: document.querySelector('.wrapperEffect'),
+      intensity: 0.3,
+      image1: '/images/trajes.jpeg',
+      image2: '/images/man_1.jpeg',
+      displacementImage: '/images/ripple.png',
+    })
+  }, [timeline])
 
   return (
-    <SwiperSlider direction={"vertical"} spaceBetween={0} slidesPerView={1}>
+    <SwiperSlider direction={'vertical'} spaceBetween={0} slidesPerView={1}>
       <SwiperSlide>
         <div className="wrapper">
           <div className="area indexIntro">
             <span>Nueva Colección verano 2022.</span>
             <div className="rev-block"></div>
-            <Link to={"/products"}>
+            <Link to={'/products'}>
               <Button className="cButton cButton-primary">Ver más</Button>
             </Link>
           </div>
@@ -93,20 +83,20 @@ const Home = () => {
       </SwiperSlide>
       <SwiperSlide className="wrapperEffect">
         <div className="slide2_text">
-            <span>Colección trajes</span>
-            <Link to={"/category/trajes"}>
-              <Button className="cButton">Ver trajes</Button>
-            </Link>
+          <span>Colección trajes</span>
+          <Link to={'/category/trajes'}>
+            <Button className="cButton">Ver trajes</Button>
+          </Link>
         </div>
       </SwiperSlide>
       <SwiperSlide className="wrapperEffect">
-            <Footer/>
+        <Footer />
         <div className="line-bg_4 one"></div>
         <div className="line-bg_4 two"></div>
         <div className="line-bg_4 three"></div>
       </SwiperSlide>
     </SwiperSlider>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

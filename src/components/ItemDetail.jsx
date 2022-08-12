@@ -62,7 +62,7 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
 
   return (
     <div id="itemDetail" className="c-container grid">
-      <div className="col-12" style={{ position: "relative" }}>
+      <div className="col-12" style={{ position: 'relative' }}>
         <div className="line one"></div>
         <div className="line two"></div>
         <div className="line three"></div>
@@ -70,14 +70,14 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
           <div className="grid">
             <div className="col-3 col-xxs-4 col-xs-6 col-sm-8 col-md-4 col-xl-3">
               {product.additional && (
-              <div className="itemDetail_materials">
-                <p className="itemDetail_materials-title aditional">
-                  Materiales y cuidados
-                </p>
-                <p className="itemDetail_materials-description aditional">
-                 {product.additional}
-                </p>
-              </div>
+                <div className="itemDetail_materials">
+                  <p className="itemDetail_materials-title aditional">
+                    Materiales y cuidados
+                  </p>
+                  <p className="itemDetail_materials-description aditional">
+                    {product.additional}
+                  </p>
+                </div>
               )}
             </div>
             <div className="col-6 col-xxs-4 col-xs-6 col-sm-8 col-md-5 col-xl-6">
@@ -129,17 +129,15 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
                     Añadir a la cesta
                   </Button>
                   {totalStock < stock && (
-                    <Link to={"/cart"}>
-                    <Button className="cButton cButton-primary cButton-fullwidth">
-                      Ver cesta
-                    </Button>
+                    <Link to={'/cart'}>
+                      <Button className="cButton cButton-primary cButton-fullwidth">
+                        Ver cesta
+                      </Button>
                     </Link>
                   )}
                 </>
                 <div className="itemDetailInfo__stock">
-                  <span>
-                    Quedan {totalStock} en stock.
-                  </span>
+                  <span>Quedan {totalStock} en stock.</span>
                 </div>
               </div>
             </div>
@@ -156,7 +154,7 @@ const ItemDetail = ({ product, stock = product.stock, initial = 0 }) => {
         </div>
       </div>
     </div>
-  );
+  )
 };
 
 export default ItemDetail;

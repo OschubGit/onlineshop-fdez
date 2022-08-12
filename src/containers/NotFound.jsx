@@ -1,8 +1,8 @@
-import React from "react";
-import Alert from "../components/alerts/Alert";
-import { categories } from "../utils/categories";
-import { Link } from "react-router-dom";
-import { MdArrowRightAlt } from "react-icons/md";
+import React from 'react'
+import Alert from '../components/alerts/Alert'
+import { categories } from '../utils/categories'
+import { Link } from 'react-router-dom'
+import { MdArrowRightAlt } from 'react-icons/md'
 
 const NotFound = () => {
   return (
@@ -26,7 +26,7 @@ const NotFound = () => {
         ))}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default NotFound;
+export default NotFound
