@@ -1,15 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
-import {
-  Typography,
-  Paper,
-  Button,
-  Grid,
-  Divider,
-  Alert,
-  Box,
-} from "@mui/material";
+import Button from "../components/buttons/Button";
+import NoProducts from "./NoProducts";
 import { CartContext } from "../contexts/CartContext";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   collection,
   doc,
@@ -23,6 +16,7 @@ import CartTable from "../components/CartTable";
 
 const Cart = () => {
   const test = useContext(CartContext);
+  const navigate = useNavigate();
   const [cartProducts, setCartProducts] = useState();
   const [totalWithTax, setTotalWithTax] = useState();
 
@@ -36,7 +30,7 @@ const Cart = () => {
   const removeItem = (c, id) => {
     test.deleteItemFromCard(c, id);
   };
-  
+
   const deleteAll = () => {
     test.deleteAll();
   };
@@ -69,7 +63,7 @@ const Cart = () => {
     };
 
     createOrderInFirestore()
-      .then((result) => alert("Your oreder has been created. ID: " + result.id))
+      .then((result) => alert("Tu pedido ha sido enviado. ID: " + result.id))
       .catch((err) => console.log(err));
 
     test.cartList.forEach(async (item) => {
@@ -86,74 +80,65 @@ const Cart = () => {
     deleteAllItemsCart();
   };
 
-  return test.cartList.length > 0 ? (
-    <Grid container spacing={3}>
-      <Grid item xs={12}>
-        <Typography variant="h1" color="secondary">
-          Cart
-        </Typography>
-      </Grid>
-      <Grid item xs={12} md={9}>
-        <div>
-          {cartProducts &&
-            cartProducts.map((c, index) => (
-              <CartTable
-                key={index}
-                c={c}
-                handleDelete={() => removeItem(cartProducts, c.id)}
-              />
-            ))}
-          <Button variant="contained" onClick={deleteAll}>
-            Borrar todo
-          </Button>
-        </div>
-      </Grid>
-      <Grid item xs={12} md={3}>
-        <Paper style={{ padding: "20px" }}>
-          <Typography variant="h6">Desglose</Typography>
-          <Divider />
-          <Box mt={3} />
-          <ul style={{ paddingLeft: "20px" }}>
+  return (
+    <>
+      {test.cartList.length > 0 ? (
+        <div className="c-container grid cart">
+          <div className="col-8 col-xss-4 col-xs-6 col-sm-4 col-md-10 col-xl-8">
+            <div className="grid">
             {cartProducts &&
-              cartProducts.map((m, index) => (
-                <li key={index}>
-                  <Typography variant="body1">
-                    {m.title} ~ qty: x{m.qty} ~ Total:{m.total.toFixed(2)}€
-                  </Typography>
-                  <Divider />
-                </li>
+              cartProducts.map((c, index) => (
+                <div className="col-12 col-xss-4 col-xs-6 col-sm-8 col-md-10 col-xl-12">
+                  <CartTable
+                    key={index}
+                    c={c}
+                    handleDelete={() => removeItem(cartProducts, c.id)}
+                  />
+                </div>
               ))}
-          </ul>
-          {test.cartList.length > 0 && (
-            <>
-              <Box mt={3} />
-              <Typography variant="subtitle1">
-                Subtotal: {test.totalItemPrice().toFixed(2)}€
-              </Typography>
-              <Typography variant="subtitle1">
-                IVA: {test.calculateTax().toFixed(2)}€
-              </Typography>
-              <Typography variant="subtitle1" fontWeight={"bold"}>
-                Total: {test.caclulateTotalWithTaxes().toFixed(2)}€
-              </Typography>
-            </>
-          )}
-        </Paper>
-        <Button
-          variant="contained"
-          color="secondary"
-          fullWidth
-          onClick={handleCheckout}
-        >
-          PAGAR
-        </Button>
-      </Grid>
-    </Grid>
-  ) : (
-    <Alert severity="info" variant="filled">
-      No hay productos en la cesta.<Link to={"/"}> Click aquí </Link> para ir a
-      la página principal
-    </Alert>
+              </div>
+            <div className="col-8 col-xss-4 col-xs-6 col-sm-8 col-md-10 col-xl-8">
+              <Button className="cButton cButton-outlined" onClick={deleteAll}>
+                Borrar todo
+              </Button>
+            </div>
+          </div>
+          <div className="col-4 col-xxs-4 col-xs-6 col-sm-8 col-md-10 col-xl-4">
+            <div className="cart_breakdown">
+              <h4 variant="h6">Desglose</h4>
+              <hr />
+              <ul style={{ paddingLeft: "20px" }}>
+                {cartProducts &&
+                  cartProducts.map((m, index) => (
+                    <li key={index}>
+                      <p variant="body1">
+                        {m.title} ~ qty: x{m.qty} ~ Total:{m.total.toFixed(2)}€
+                      </p>
+                      <hr />
+                    </li>
+                  ))}
+              </ul>
+              <div className="cart_breakdown-total">
+                <p>Subtotal: {test.totalItemPrice().toFixed(2)}€</p>
+                <p>IVA: {test.calculateTax().toFixed(2)}€</p>
+                <p>Total: {test.caclulateTotalWithTaxes().toFixed(2)}€</p>
+                <Button
+                  className="cButton cButton-primary cButton-fullwidth"
+                  onClick={handleCheckout}
+                >
+                  PAGAR
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <NoProducts
+          alert="Puedes revisar la información de tu pedido en Mis Pedidos"
+          title="Buscar productos"
+        />
+      )}
+    </>
   );
 };
 

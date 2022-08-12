@@ -226,24 +226,6 @@
         color: #f9f9f9
     }
     
-    .footer_info{
-        @include grid-start-end(2, 12, 2, 12);
-        @include flex-center;
-        background-color: #f9f9f9;
-        flex-direction: column;
-        
-        .social{
-            margin-top: 45px;
-            display: flex;
-            gap: 20px;
-            font-size: 14px;
-        }
-        .political{
-            display: flex;
-            gap: 20px;
-            font-size: 14px;
-        }
-    }
 }
 
 .line-bg_4{
@@ -260,4 +242,43 @@
 }
 .three{
     left: 75%;
+}
+
+@media (max-width: 1200px){
+    .wrapper{
+        .hover-text-area-partial{
+            display: none;
+        }
+        .area{
+            @include grid-start-end(3, 22, 13, 10);
+            text-align: center;
+        }
+        .area1{
+            @include grid-start-end(1, 25, 1, 13);
+
+            & img{
+            width: 100%;
+            &:hover{
+                width: 100%;
+            }
+            }
+        }
+        
+        .area2{
+            @include grid-start-end(1, 25, 13, 25);
+
+            & img{
+                width: 100%;
+                &:hover{
+                width: 100%;
+            }
+            }
+        }
+        .area3{
+            display: none;
+        }
+        .area4{
+            display: none;
+        }
+    }
 }

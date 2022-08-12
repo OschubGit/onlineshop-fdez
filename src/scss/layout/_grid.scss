@@ -1,6 +1,7 @@
 .grid_v2{
-    @include grid-templete( repeat(12, 1fr), 1fr);
+    grid-template-columns: var(--grid-main);
     gap: var(--grid-gap);
+    display: grid;
     width: 100%;
 }
 .grid_v5{

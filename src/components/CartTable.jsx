@@ -1,35 +1,24 @@
-import React from 'react'
-import {Paper, Button} from "@mui/material"
+import React from "react";
+import Button from "./buttons/Button";
 
-const CartTable = ({c, handleDelete}) => {
+const CartTable = ({ c, handleDelete }) => {
   return (
-    <Paper
-                elevation={3}
-                style={{
-                  padding: "24px",
-                  marginBottom: "12px",
-                  display: "flex",
-                  gap: "20px",
-                }}
-              >
-                <img width="85px" src={c.images[0]} alt="pimage" />
-                <div>
-                  <strong>Nombre de producto:</strong> {c.title}
-                </div>
-                <div>
-                  <strong>Descripción:</strong> {c.description}
-                </div>
-                <div>
-                  <strong>Cantidad:</strong> {c.qty}
-                </div>
-                <div>
-                  <strong>Total:</strong> {c.total.toFixed(2)}€
-                </div>
-                <Button onClick={handleDelete}>
-                  Delete
-                </Button>
-              </Paper>
-  )
-}
+    <div
+      className="c-cartTable"
+    >
+      <img width="85px" height="auto" src={c.images[0]} alt="pimage" />
+      <div>
+        <strong>Nombre de producto:</strong> {c.title}
+      </div>
+      <div>
+        <strong>Cantidad:</strong> {c.qty}
+      </div>
+      <div>
+        <strong>Total:</strong> {c.total.toFixed(2)}€
+      </div>
+      <Button className="cButton cButton-outlined" onClick={handleDelete}>Delete</Button>
+    </div>
+  );
+};
 
-export default CartTable
+export default CartTable;

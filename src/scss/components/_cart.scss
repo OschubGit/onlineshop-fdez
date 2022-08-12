@@ -1,0 +1,27 @@
+.cart{
+    padding: 5.5rem 0;
+
+    .c-cartTable{
+        @include flex-between;
+        align-items: center;
+        @include rounded(4px);
+        padding: var(--space-m);
+        margin-bottom: var(--space-s);
+        border: 0.2px solid var(--prussian-blue);
+        gap: 12px;
+        @media (max-width: 700px){
+            flex-direction: column;
+        }
+    }
+    
+    &_breakdown{
+        @include rounded(4px);
+        padding: var(--space-m);
+        margin-bottom: var(--space-s);
+        border: 0.2px solid var(--prussian-blue);
+        
+        &-total{
+            padding: var(--space-s);
+        }
+    }
+}

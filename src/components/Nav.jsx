@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-/* material ui components */
-import { Typography } from "@mui/material";
 import CardWidget from "./CardWidget";
 import { CartContext } from "../contexts/CartContext";
 import { nav } from "../utils/nav";
@@ -12,25 +10,24 @@ const Nav = () => {
   return (
     <nav className="navbar_nav">
       <Link to={"/"}>
-        <Typography className="logo" variant="h6" sx={{ minWidth: 100, mr: 3 }}>
-          ARAZ
-        </Typography>
+        <span className="logo" variant="h6" sx={{ minWidth: 100, mr: 3 }}>
+          ZRARA
+        </span>
       </Link>
       <div className="navbar_nav-menu">
         {nav.map((m, index) => (
-          <Typography
+          <p
             className="categories-nav"
             key={index}
-            sx={{ minWidth: 100 }}
           >
             <Link
-              to={"/"}
+              to={m.link}
               color="inherit"
               underline="none"
             >
               {m.item}
             </Link>
-          </Typography>
+          </p>
         ))}
       </div>
       {test.cartList.length > 0 && (

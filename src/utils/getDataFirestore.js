@@ -32,3 +32,16 @@ export const getItemDataFromFirestore = async (id, firestoreDocument) => {
     console.log("No such document")
   }
 }
+
+export const getOrdersFromFirebase = async () => {
+  let resultProducts;
+  resultProducts = query(collection(db, "orders"));  
+
+  const querySnapshot = await getDocs(resultProducts);
+  const dataMapFirestore = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data()
+  }))
+
+  return dataMapFirestore
+};

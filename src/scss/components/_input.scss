@@ -1,0 +1,20 @@
+.input{
+    padding: var(--space-m);
+    border: 0.2px solid rgba(0, 0, 0, 0.411);
+    @include rounded(4px);
+    font-size: var(--text-note);
+    color: black;
+    box-sizing: border-box
+}
+.fulldwith{
+    @extend .input;
+    width: 100%;
+}
+
+.inputSelect{
+    @extend .input;
+}
+.inputSelect .fulldwith{
+    @extend .input;
+    @extend .fulldwith;
+}

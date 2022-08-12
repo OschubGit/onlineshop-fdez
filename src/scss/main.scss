@@ -1,4 +1,4 @@
-//variables
+//utilities
 @import "./utilities/variables";
 @import "./utilities/mixins";
 
@@ -9,6 +9,7 @@
 //layout
 @import "./layout/navbar";
 @import "./layout/grid";
+@import "./layout/footer";
 
 //components
 @import "./components/button";
@@ -17,15 +18,16 @@
 @import "./components/drawer";
 @import "./components/social";
 @import "./components/swiperSlide";
+@import "./components/cart";
+@import "./components/orders";
+@import "./components/cartwidget";
+@import "./components/input";
+@import "./components/alert";
 
 //views
 @import "./views/home";
 @import "./views/itemListContainer";
 @import "./views/itemDetail";
 @import "./views/noProducts";
-
-//utils
-@import "./utilities/utils";
-@import "./utilities/mixins";
 
 

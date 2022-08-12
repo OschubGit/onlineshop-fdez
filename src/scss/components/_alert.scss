@@ -1,0 +1,29 @@
+.alert{
+    @include flex-align-center;
+    @include rounded(4px);
+    padding: var(--padding-large)
+}
+
+.alert-info{
+    @extend .alert;
+    background-color: var(--variant-info);
+    color: var(--common-white);
+}
+
+.alert-warning{
+    @extend .alert;
+    background-color: var(--variant-warning);
+    color: var(--common-white);
+}
+
+.alert-alert{
+    @extend .alert;
+    background-color: var(--variant-alert);
+    color: var(--common-white);
+}
+
+.alert-outlined{
+    @extend .alert;
+    border: 0.3px solid var(--prussian-blue);
+    color: var(--common-black);
+}

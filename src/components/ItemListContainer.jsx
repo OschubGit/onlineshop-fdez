@@ -3,13 +3,11 @@ import ItemList from "./ItemList";
 import NoProducts from "../containers/NoProducts";
 import { useParams } from "react-router-dom";
 import Loading from "./Loading";
-import { Button } from "@mui/material";
 import { getDataFromFirebase } from "../utils/getDataFirestore";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [pagination, setPagination] = useState(3);
   const { category } = useParams();
 
   useEffect(() => {
@@ -34,15 +32,12 @@ const ItemListContainer = () => {
           <ItemList products={products} />
         </div>
       </div>
-      <Button
-        disabled={pagination > products.length}
-        onClick={() => setPagination(pagination + 3)}
-      >
-        Ver más productos
-      </Button>
     </>
   ) : (
-    <NoProducts/>
+    <NoProducts
+      alert={`No hay productos para la categoría ${category}`}
+      title="Puedes buscar en otras categorías"
+    />
   );
 };
 

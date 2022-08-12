@@ -10,6 +10,18 @@
     border: 0px;
     cursor: pointer;
 }
+
+.cBuutton:disabled, button[disabled]{
+   @extend .cButton; 
+    border: 0px;
+    background-color: var(--grey300);
+    color: var(--grey500);
+    &:hover{
+        color: var(--grey500);
+        background-color: var(--grey300);
+    }
+  }
+
 .cButton-primary{
     @extend .cButton;
     background-color: black;
@@ -31,6 +43,11 @@
         background-color: black;
 
     }
+}
+
+.cButton-fullwidth{
+    @extend .cButton;
+    width: 100%;
 }
 
 .cButton-xs{

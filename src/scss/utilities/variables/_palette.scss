@@ -35,7 +35,13 @@
    --secondary-color: var(--red-ncs);
    --secondary-light: var(--crimson);
    --secondary-dark: var(--antique-ruby);
-    /* End Palette secondary colors */
+   /* End Palette secondary colors */
+   
+   /* variants */
+   --variant-info: var(--honolulu-blue);
+   --variant-warning: rgb(238, 170, 60);
+   --variant-alert: var(--red-ncs);
+    /* end variants */
 
     /* grey colors */
    --grey100: #f5f5f5;

@@ -5,6 +5,15 @@
     grid-template-rows: 50px auto 1fr;
     height: 100%;
 
+    &_login{
+        display: none;
+        @media (max-width:900px){
+            @include flex-direction-column;
+            font-size: var(--text-xs);
+            font-family: var(--main-font);
+            margin-top: var(--space-m);
+        }
+    }
     &_social{
         @include flex-align-center;
         & svg{

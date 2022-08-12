@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import ItemDetail from './ItemDetail'
-/* import productsApi from "./productsApi"; */
-/* import customFetch from '../utils/customFetch'; */
 import Loading from "./Loading"
 import { useParams } from 'react-router-dom';
 import { getItemDataFromFirestore } from '../utils/getDataFirestore';

@@ -1,47 +1,14 @@
-//base typo
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap');
+
 :root{
     font-family: var(--main-font);
 }
 
-.primary-font {
-    font-family: var(--main-font);
-    font-weight: normal;
+body{
+  background-color: #fff;
+  padding: 0px;
+  margin: 0px;
 }
-.secondary-font {
-    font-family: var(--secondary-font);
-    font-weight: normal;
-}
-.text-jumbo {
-    font-size: var(--text-jumbo);
-  }
-  
-  .text-display {
-    font-size: var(--text-display);
-  }
-  
-  .text-headline {
-    font-size: var(--text-headline);
-  }
-  
-  .text-title {
-    font-size: var(--text-title);
-  }
-  
-  .text-subheader {
-    font-size: var(--text-subheader);
-  }
-  
-  .text-body {
-    font-size: var(--text-base);
-  }
-  
-  .text-caption {
-    font-size: var(--text-caption);
-  }
-  
-  .text-note {
-    font-size: var(--text-note);
-  }
 
   .c-container{
     max-width: var(--maxwidth);
@@ -67,4 +34,8 @@
   
   .styles-module_close__2I1sI{
     display: none !important;
+  }
+
+  .MuiBackdrop-root{
+    background-color: transparent !important;
   }
