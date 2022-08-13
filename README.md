@@ -51,16 +51,16 @@ Imágenes del proyecto + link de grabación de navegavilidad.
 Pega el siguiente link en el navegador para descargarlo.
 Link: https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/Grabacio%CC%81n%20de%20pantalla%202022-08-13%20a%20las%202.57.24.mov?alt=media&token=31b420e4-02bc-46d0-9fb7-8d790c8bcf4b
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660351564146.png?alt=media&token=c269bc9e-07e7-4672-8217-07e4a527896b)
+![screenshoot](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660351564146.png?alt=media&token=c269bc9e-07e7-4672-8217-07e4a527896b)
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660351574073.png?alt=media&token=a858eb89-9778-43aa-8d97-cc71c29c1441)
+![screenshoot](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660351574073.png?alt=media&token=a858eb89-9778-43aa-8d97-cc71c29c1441)
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660351582555.png?alt=media&token=8ce7355f-d718-4b29-8b82-a162f6de5bbb)
+![screenshoot](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660351582555.png?alt=media&token=8ce7355f-d718-4b29-8b82-a162f6de5bbb)
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660351600087.png?alt=media&token=e99c04e6-d5ea-4605-882c-5be988eeef71)
+![screenshoot](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660351600087.png?alt=media&token=e99c04e6-d5ea-4605-882c-5be988eeef71)
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660353361373.png?alt=media&token=5f03c34d-c472-478c-ab77-662bf80b30da)
+![screenshoot](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660353361373.png?alt=media&token=5f03c34d-c472-478c-ab77-662bf80b30da)
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660353732276.png?alt=media&token=a9631f54-c9e5-4195-beff-eca1dee65053)
+![screenshoot](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660353732276.png?alt=media&token=a9631f54-c9e5-4195-beff-eca1dee65053)
 
 
