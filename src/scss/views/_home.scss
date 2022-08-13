@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+.swiper{
+    height: 100vh !important;
+}
+.swiper-slide{
+    height: 100vh !important;
+}
+.swiper-slide-active{
+    height: 100vh !important;
+    margin-bottom: 0 !important;
+}
+.wrapper{
+    @include grid-templete( repeat(24, 1fr),  repeat(24, 1fr));
+    width: 100%;
+    height: 100vh !important;
+
+    .area{
+        @include grid-start-end(12, 22, 4, 10);
+        @include flex-direction-column;
+        width: 100%;
+        z-index: 1;
+
+        & span{
+            font-family: var(--secondary-font);
+            font-size: var(--text-headline);
+            font-style: italic;
+            font-weight: 200;
+            position: relative;
+            width: 100%;
+            animation: revtext 1s forwards ease-in-out 0.3s;
+            opacity: 0;
+
+            @keyframes revtext {
+                0%{
+                    opacity: 0;
+                }
+                100%{
+                    opacity: 1;
+                }
+            }
+        }
+        .rev-block{
+            @include grid-start-end(12, 20, 4, 10);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            &:before{
+                content: "";
+                width: 0%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: black;
+                animation: revblcok 1s forwards ease-in-out 2s;
+                animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+                animation-delay: 0s;
+                -webkit-animation: revblcok 1s forwards ease-in-out;
+                -moz-animation: revblcok 1s forwards ease-in-out;
+                -o-animation: revblcok 1s forwards ease-in-out;
+                -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+                -moz-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+                -o-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+            }
+            @keyframes revblcok {
+                0%{
+                    left: 0;
+                    width: 0%;
+                }
+                50%{
+                    left: 0;
+                    width: 100%;
+                }
+                100%{
+                    left: 100%;
+                    width: 0%;
+                }
+            }
+        }
+    }
+    .hover-text-area-span{
+        font-size: var(--text-note);
+        font-family: var(--main-font);
+        padding: var(--padding-small);
+        text-decoration: underline;
+        cursor: pointer;
+        color: black;
+        background-color: rgba(255, 255, 255, 0.807);
+    }
+    .hover-text-area-partial{
+        z-index: 1;
+        opacity: 1;
+        transition: 0.3s ease;
+    }
+
+    .hover-text-area1{
+        @include grid-start-end(2, 10, 8, 11);
+    }
+
+    .hover-text-area2{
+        @include grid-start-end(18, 23, 11, 13);
+    }
+
+    .hover-text-area3{
+        @include grid-start-end(8, 13, 20, 23);
+    }
+
+    .hover-text-area4{
+        @include grid-start-end(13, 19, 15, 18);
+    }
+
+    .area1{
+        @include grid-start-end(1, 14, 1, 11);
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        
+        &:hover{
+            cursor: pointer;
+        }
+        
+        & img{
+            object-fit: cover;
+            width: 700px;
+            height: 100%;
+            object-position: top;
+            transition: 0.3s;
+            &:hover{
+                transition: 0.3s;
+                width: 750px;
+            }
+            &:hover .hover-text-area1{
+                z-index: 1;
+                opacity: 0;
+                transition: 0.3s;
+            }
+        }
+    }
+    .area2{
+        @include grid-start-end(17, 24, 1, 14);
+        width: 100%;
+        overflow: hidden;
+        &:hover{
+                cursor: pointer;
+            }
+        & img{
+            object-fit: cover;
+            width: 600px;
+            height: 100%;
+            object-position: top;
+            transition: 0.3s;
+
+            &:hover{
+                transition: 0.3s;
+                width: 650px;
+            }
+        }
+    }
+    .area3{
+        @include grid-start-end(2, 11, 12, 24);
+        width: 100%;
+        overflow: hidden;
+        &:hover{
+                cursor: pointer;
+            }
+        & img{
+            object-fit: cover;
+            width: 600px;
+            height: 100%;
+            object-position: top;
+            transition: 0.3s;
+
+            &:hover{
+                transition: 0.3s;
+                width: 750px;
+            }
+        }
+    }
+    .area4{
+        @include grid-start-end(14, 25, 15, 25);
+        width: 100%;
+        overflow: hidden;&:hover{
+                cursor: pointer;
+            }
+        
+        & img{
+            object-fit: cover;
+            width: 660px;
+            height: 100%;
+            transition: 0.3s;
+
+            &:hover{
+                transition: 0.3s;
+                width: 750px;
+            }
+        }
+    }
+}
+
+.wrapperEffect{
+    @include grid-templete( repeat(12, 1fr),  repeat(12, 1fr));
+    width: 100% !important;
+    overflow: hidden;
+    height: 100% !important;
+    min-height: 100vh !important;
+    position: relative;
+
+    & canvas{
+        @include grid-start-end(1, 13, 1, 13);
+        width: 100% !important;
+        height: auto !important;
+        position: relative;
+    }
+
+    .slide2_text{
+        @include grid-start-end(5, 9, 5, 6);
+        @include flex-center;
+        z-index: 99;
+        text-align: center;
+        font-family: var(--secondary-font);
+        font-size: 4em;
+        flex-direction: column;
+        color: #f9f9f9
+    }
+    
+}
+
+.line-bg_4{
+    position: absolute;
+    width: 1px !important;
+    height: 100vh;
+    background: rgba(2, 2, 2, 0.097);
+}
+.one{
+    left: 25%;
+}
+.two{
+    left: 50%;
+}
+.three{
+    left: 75%;
+}
+
+@media (max-width: 1200px){
+    .wrapper{
+        .hover-text-area-partial{
+            display: none;
+        }
+        .area{
+            @include grid-start-end(3, 22, 13, 10);
+            text-align: center;
+        }
+        .area1{
+            @include grid-start-end(1, 25, 1, 13);
+
+            & img{
+            width: 100%;
+            &:hover{
+                width: 100%;
+            }
+            }
+        }
+        
+        .area2{
+            @include grid-start-end(1, 25, 13, 25);
+
+            & img{
+                width: 100%;
+                &:hover{
+                width: 100%;
+            }
+            }
+        }
+        .area3{
+            display: none;
+        }
+        .area4{
+            display: none;
+        }
+    }
+}

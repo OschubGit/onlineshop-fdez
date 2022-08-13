@@ -1,0 +1,64 @@
+.cButton{
+    font-size: var(--text-note);
+    font-family: var(--main-font);
+    width: auto;
+    padding: 16px;
+    background-color: white;
+    border-radius: 4px;
+    color: black;
+    text-align: center;
+    border: 0px;
+    cursor: pointer;
+}
+
+.cBuutton:disabled, button[disabled]{
+   @extend .cButton; 
+    border: 0px;
+    background-color: var(--grey300);
+    color: var(--grey500);
+    &:hover{
+        color: var(--grey500);
+        background-color: var(--grey300);
+    }
+  }
+
+.cButton-primary{
+    @extend .cButton;
+    background-color: black;
+    color: white;
+    &:hover{
+        background-color: rgb(29, 29, 29);
+    }
+}
+
+.cButton-outlined{
+    @extend .cButton;
+    border: 0.2px solid black;
+    background-color: white;
+    color: black;
+    transition: 0.3s;
+    &:hover{
+        transition: 0.3s;
+        color: white;
+        background-color: black;
+
+    }
+}
+
+.cButton-fullwidth{
+    @extend .cButton;
+    width: 100%;
+}
+
+.cButton-xs{
+    @extend .cButton;
+    padding: 8px;
+}
+.cButton-md{
+    @extend .cButton;
+    padding: 16px;
+}
+.cButton-xl{
+    @extend .cButton;
+    padding: 24px;
+}

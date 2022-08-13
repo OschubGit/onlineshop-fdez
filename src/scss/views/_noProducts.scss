@@ -1,0 +1,13 @@
+.noProducts{
+    padding-top: 5rem;
+    &_related{
+        @include grid-start-end(2, 12, 6, 11);
+        @include grid-templete(repeat(5, 1fr), auto);
+        @include flex-center;
+        padding: var(--space-xl);
+        flex-wrap: wrap;
+        gap: 12px;
+        border: 0.2px solid var(--prussian-blue);
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,9 @@
+.social{
+    display: flex;
+    gap: 12px;
+    cursor: pointer;
+    & span{
+        font-size: var(--text-xs);
+        font-family: var(--main-font);
+    }
+}

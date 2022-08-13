@@ -1,0 +1,68 @@
+// mixins
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin flex-align-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin flex-direction-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin grid-templete($columns, $rows) {
+    display: grid;
+    grid-template-columns: $columns;
+    grid-template-rows: $rows;
+}
+
+@mixin grid-column-start-end($start, $end) {
+    grid-column-start: $start;
+    grid-column-end: $end;
+}
+
+@mixin grid-row-start-end($start, $end) {
+    grid-row-start: $start;
+    grid-row-end: $end;
+}
+
+@mixin grid-start-end($c-start, $c-end, $r-start, $r-end) {
+    grid-column-start: $c-start;
+    grid-column-end: $c-end;
+    grid-row-start: $r-start;
+    grid-row-end: $r-end;
+}
+
+@mixin rounded($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-raidus: $radius;
+    border-radius: $radius;
+}
+
+@mixin shadow($x, $y, $blur, $color) {
+    -webkit-box-shadow: $x $y $blur $color;
+    -moz-box-shadow: $x $y $blur $color;
+    box-shadow: $x $y $blur $color;
+}
+
+@mixin border-box {
+    -webkit-box-sizing:  border-box;
+    -moz-box-sizing:  border-box;
+    box-sizing: border-box;
+}

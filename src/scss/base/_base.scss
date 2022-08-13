@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap');
+
+:root{
+    font-family: var(--main-font);
+}
+
+body{
+  background-color: #fff;
+  padding: 0px;
+  margin: 0px;
+}
+
+  .c-container{
+    max-width: var(--maxwidth);
+    min-height: 100vh;
+    width: 100%;
+    padding-left: var(--container-padding) !important;
+    padding-right: var(--container-padding) !important;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .grid{
+    display: grid;
+    grid-template-columns: var(--grid-main);
+    grid-auto-rows: min-content;
+    gap: var(--grid-gap)
+  }
+
+  .styles-module_wrapper__1I_qj{
+    background-color: #000000ab !important;
+  }
+  
+  .styles-module_close__2I1sI{
+    display: none !important;
+  }
+
+  .MuiBackdrop-root{
+    background-color: transparent !important;
+  }

@@ -1,0 +1,12 @@
+.grid_v2{
+    grid-template-columns: var(--grid-main);
+    gap: var(--grid-gap);
+    display: grid;
+    width: 100%;
+}
+.grid_v5{
+    display: grid;
+    grid-template-columns: var(--grid-main);
+    width: 100%;
+    gap: var(--grid-gap);
+}
