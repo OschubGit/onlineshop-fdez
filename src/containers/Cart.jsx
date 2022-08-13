@@ -112,7 +112,7 @@ const Cart = () => {
                   cartProducts.map((m, index) => (
                     <li key={index}>
                       <p variant="body1">
-                        {m.title} ~ qty: x{m.qty} ~ Total:{m.total.toFixed(2)}€
+                        {m.title} ~ x {m.qty} ~ Total: {m.total.toFixed(2)}€
                       </p>
                       <hr />
                     </li>
@@ -134,7 +134,7 @@ const Cart = () => {
         </div>
       ) : (
         <NoProducts
-          alert="Puedes revisar la información de tu pedido en Mis Pedidos"
+          alert="Puedes revisar la información de tus pedido en Mis Pedidos"
           title="Buscar productos"
         />
       )}
