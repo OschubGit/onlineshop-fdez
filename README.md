@@ -59,4 +59,8 @@ Link: https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appsp
 
 ![alt text](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660351600087.png?alt=media&token=e99c04e6-d5ea-4605-882c-5be988eeef71)
 
+![alt text](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660353361373.png?alt=media&token=5f03c34d-c472-478c-ab77-662bf80b30da)
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660353732276.png?alt=media&token=a9631f54-c9e5-4195-beff-eca1dee65053)
+
 
