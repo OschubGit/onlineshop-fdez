@@ -46,7 +46,7 @@ Usaremos hover-effect y react-gsap para algunos efectos visuales en la página p
 
 A parte firebase como gestión de datos en la nube y react-router-dom para el enrutado de navegación.
 
-Imágenes del proyecto + link de grabación de navegavilidad.
+### Imágenes del proyecto + link de grabación de navegavilidad.
 
 Pega el siguiente link en el navegador para descargarlo.
 Link: https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/Grabacio%CC%81n%20de%20pantalla%202022-08-13%20a%20las%202.57.24.mov?alt=media&token=31b420e4-02bc-46d0-9fb7-8d790c8bcf4b
