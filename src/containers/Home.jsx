@@ -10,13 +10,11 @@ import Button from '../components/buttons/Button'
 import Footer from '../containers/Footer'
 
 const Home = () => {
-  const [toggle, setToggle] = useState(false)
   const timeline = gsap.timeline({
     defaults: { ease: 'power4.out' },
   })
 
   useEffect(() => {
-    setToggle(false)
     const TituloHome = document.querySelectorAll('.indexIntro')
     const Image1 = document.querySelectorAll('.gsapAnimated')
     const Image2 = document.querySelectorAll('.gsapAnimated_2')

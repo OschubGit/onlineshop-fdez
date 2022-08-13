@@ -2,7 +2,8 @@ import React from 'react'
 import Alert from '../components/alerts/Alert'
 import { categories } from '../utils/categories'
 import { Link } from 'react-router-dom'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import { MdArrowRightAlt } from 'react-icons/md'
+
 
 const NoProducts = ({ alert, title }) => {
   return (
@@ -13,7 +14,7 @@ const NoProducts = ({ alert, title }) => {
       <div className="col-12">
         <div>
           <h3>{title}</h3>
-          <ArrowForwardIcon />
+          <MdArrowRightAlt />
         </div>
       </div>
       {categories.map((m, index) => (
