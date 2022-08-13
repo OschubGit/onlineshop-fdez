@@ -1,13 +1,13 @@
 # ZRARA
 Zrara es un proyecto realizado para el curso de coderhouse - React convocatoria 31225. 
-El proyecto trata de un Eccommerce de moda, donde el usuario podrá navegar por la página principal y acceder a las diferentes categorías. También podrá simular la compra de un producto y poder ver las compras realizadas. Así mismo también podrá crear productos nuevos y añadirlos al catálogo.
+El proyecto trata de un Eccommerce de moda, donde el usuario podrá navegar por la página principal y acceder a las diferentes categorías. También podrá simular la compra de un producto y ver las compras realizadas. Así mismo también podrá crear productos nuevos y añadirlos al catálogo.
 
 ## Descarga del proyecto
 Se puede descargar el proyecto a través de una terminal, introduciendo:
 
 `git clone https://github.com/OschubGit/onlineshop-fdez.git`
 
-Después de ejecutar la clonación deberemos instalar todas las dependencias necesarias con:
+Después de ejecutar la clonación deberemos acceder a la carpeta del proyecto y instalar todas las dependencias necesarias con:
 
 `npm install`
 
@@ -45,6 +45,11 @@ En el directorio raíz encontramos todas las dependencias instaladas con sus res
 Usaremos hover-effect y react-gsap para algunos efectos visuales en la página principal. React toastify para integrar algunas notificaciones. React-loader-spinner para los loadings. React-icons donde usaremos importaciones de iconos. Swiper para crear slides y react-simple-image-viewer para mostrar una galería de imágenes.
 
 A parte firebase como gestión de datos en la nube y react-router-dom para el enrutado de navegación.
+
+Imágenes del proyecto + link de grabación de navegavilidad.
+
+Pega el siguiente link en el navegador para descargarlo.
+Link: https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/Grabacio%CC%81n%20de%20pantalla%202022-08-13%20a%20las%202.57.24.mov?alt=media&token=31b420e4-02bc-46d0-9fb7-8d790c8bcf4b
 
 ![alt text](https://firebasestorage.googleapis.com/v0/b/coderhouse-project-edffa.appspot.com/o/screely-1660351564146.png?alt=media&token=c269bc9e-07e7-4672-8217-07e4a527896b)
 
