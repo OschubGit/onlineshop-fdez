@@ -1,6 +1,6 @@
 import React from 'react'
 import Nav from '../components/Nav'
-import TemporaryDrawer from '../components/drawer/Drawer'
+import TemporaryDrawer from '../components/menu/Drawer'
 
 const Navbar = () => {
   return (

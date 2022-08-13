@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react'
 import Button from '../components/buttons/Button'
 import NoProducts from './NoProducts'
 import { CartContext } from '../contexts/CartContext'
-import { useNavigate } from 'react-router-dom'
 import {
   collection,
   doc,
@@ -16,7 +15,6 @@ import CartTable from '../components/CartTable'
 
 const Cart = () => {
   const test = useContext(CartContext)
-  const navigate = useNavigate()
   const [cartProducts, setCartProducts] = useState()
   const [totalWithTax, setTotalWithTax] = useState()
 

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { gsap } from 'gsap'
-import { useState } from 'react'
-import { SwiperSlider } from '../components/swiperSlider/SwiperSlider'
+import { SwiperSlider } from '../components/swiper/SwiperSlider'
 import { SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import hoverEffect from 'hover-effect'
